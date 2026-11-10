@@ -1,0 +1,35 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  simulator:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run firmware simulator
+        run: ./sim/run.sh firmware/voiceover_device_ble/voiceover_device_ble.ino
+
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: arduino/setup-arduino-cli@v2
+      - name: Install arduino-pico core
+        run: |
+          arduino-cli config init
+          arduino-cli config add board_manager.additional_urls https://github.com/earlephilhower/arduino-pico/releases/download/global/package_rp2040_index.json
+          arduino-cli core update-index
+          arduino-cli core install rp2040:rp2040@6.3.0
+      - name: Compile firmware
+        run: |
+          arduino-cli compile -b "rp2040:rp2040:rpipico2w:ipbtstack=ipv4btcble" \
+            --output-dir build firmware/voiceover_device_ble
+          arduino-cli compile -b "rp2040:rp2040:rpipico2w:ipbtstack=ipv4btcble" firmware/tools/keytest
+          arduino-cli compile -b "rp2040:rp2040:rpipico2w:ipbtstack=ipv4btcble" firmware/tools/usbdiag
+      - uses: actions/upload-artifact@v4
+        with:
+          name: firmware-uf2
+          path: build/*.uf2
