@@ -26,7 +26,7 @@ Do this once on the student's iPad. Each item says why it matters.
 
 ## TD Snap
 
-- [ ] Hold **Back + Chooser** for 3 seconds to put the box in TD Snap mode. The piezo (if fitted) plays rising tones, then two beeps.
+- [ ] Hold **Back + Chooser** for 3 seconds to put the box in TD Snap mode. The box gives no sound or light when it switches: with VoiceOver on, the wheel stops moving between items.
 - [ ] In TD Snap, open Edit, then User → Access Method → **Scanning**, then **2 Switch Step Scan**, with **Space = next** and **Enter = select**.
 - [ ] Turn on TD Snap's audio feedback, with a different voice from the speaking voice.
 - [ ] Don't use 1-Switch Auto Scan with Enter.
@@ -36,7 +36,7 @@ Do this once on the student's iPad. Each item says why it matters.
 
 | Symptom | Likely cause |
 |---|---|
-| Wheel does nothing with VoiceOver on, only Chooser seems to work | The box is in TD Snap mode: unplug and replug it, and it beeps twice. Hold Back + Chooser for 3 s. |
+| Wheel does nothing with VoiceOver on, only Chooser seems to work | The box is in TD Snap mode. Hold Back + Chooser for 3 s. |
 | Red button dark when plugged in | No power: flip the plug at the box end, or try another cable. |
 | Red button lit, but nothing happens on the iPad | Charge-only cable, Wired Accessories blocking it, or the iPad was locked when plugged in. |
 | Not sure what the iPad is receiving | Open the [Box Key Check page](https://wmetcalf.github.io/voiceover-switch-box/tools/box-key-check.html) on the iPad with VoiceOver off and press the buttons. It lists every key received and which button it came from. |

@@ -28,7 +28,6 @@ Adafruit product numbers are the parts the original box was built with. Equivale
 | 1 kit | Dupont jumper wires, male–male / male–female / female–female (ELEGOO 120-piece kit, [Amazon B01EV70C78](https://www.amazon.com/dp/B01EV70C78)) | Breadboard wiring |
 | — | 22 AWG stranded hook-up wire | For screw terminals and longer runs |
 | — | Wago 221-415 lever connectors (optional) | Ground and 5 V buses without soldering. |
-| 1 | Passive piezo buzzer (optional) | Mode and start-up beeps. GP22 to GND. |
 | 3 | M3 screws, about 10 mm (plus nuts if the encoder's mounting holes aren't threaded) | Fix the encoder to the lid. |
 
 ## Enclosure

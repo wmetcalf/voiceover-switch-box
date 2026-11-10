@@ -28,7 +28,7 @@ It was built for one student, so every choice favours being impossible to get st
 | Back + Chooser, hold 3 s | Switch to TD Snap mode | Switch to VoiceOver mode |
 | Back + Green, hold 3 s | Turn VoiceOver Quick Nav on/off (Green goes Home first) | Nothing extra (Green still selects) |
 
-The Red button glows whenever the box has power. The mode is remembered when the box is unplugged. The Pico's LED, inside the box, shows the mode: on 1 s / off 1 s is VoiceOver mode, twice as fast is TD Snap mode. If a piezo is fitted, the box beeps once or twice on start-up and when switching. Back and Chooser act when released, so starting a two-button hold never sends anything.
+The Red button glows whenever the box has power. The mode is remembered when the box is unplugged. The Pico's LED, inside the box, shows the mode: on 1 s / off 1 s is VoiceOver mode, twice as fast is TD Snap mode. The box makes no sound: to check the mode from outside, turn the wheel with VoiceOver on. Items move in VoiceOver mode; nothing happens in TD Snap mode. Back and Chooser act when released, so starting a two-button hold never sends anything.
 
 ## Quick start
 

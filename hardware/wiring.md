@@ -13,7 +13,6 @@ Every button connects between a GPIO pin and **GND**. The firmware turns on the 
 | 25 | GP19 | Yellow |
 | 26 | GP20 | Chooser |
 | 27 | GP21 | Back |
-| 29 | GP22 | Piezo + (optional). Piezo − to GND. |
 | 31 | GP26 | Battery sense (optional, off by default) |
 | 40 | VBUS | 5 V for the button LEDs only. The original box lights the Red button as a power light. |
 | 36 | 3V3(OUT) | Encoder power (the prototype runs the 60 mm encoder from 3.3 V) |

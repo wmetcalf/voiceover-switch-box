@@ -213,10 +213,9 @@ canvas{display:block;margin:0 auto;}
       <div class="pb"><div class="pn">15 — iPAD CABLE</div><div class="pm">USB-C to USB-C cable that carries data (USB-C iPads, iPhone 15+)</div><div class="pw">Lightning devices: Apple Lightning to USB Camera Adapter + USB-A to USB-C cable</div><div class="pc">~$6</div></div>
       <div class="pb"><div class="pn">16 &mdash; USB-C PANEL MOUNT</div><div class="pm">PENGLIN USB-C female-to-female panel-mount coupler, D-type (2-pack)</div><div class="pw"><a href="https://www.amazon.com/dp/B0B4VWZD7X" target="_blank" rel="noopener" style="color:var(--blue)">Amazon B0B4VWZD7X</a> &middot; 24&nbsp;mm hole, 2 screws; one spare. Passes power one way round only</div><div class="pc">~$8</div></div>
       <div class="pb"><div class="pn">17 &mdash; INTERNAL CABLE</div><div class="pm">Cable Matters braided USB-C to micro-USB cable, 1&nbsp;m</div><div class="pw"><a href="https://www.amazon.com/dp/B00UUBRX0Y" target="_blank" rel="noopener" style="color:var(--blue)">Amazon B00UUBRX0Y</a> &middot; panel mount &rarr; Pico, inside the box</div><div class="pc">owned</div></div>
-      <div class="pb"><div class="pn">18 &mdash; BEEPER (v10)</div><div class="pm">3&nbsp;V passive piezo or magnetic buzzer, ~12&nbsp;mm</div><div class="pw">Audio feedback &mdash; the only feedback a blind user gets</div><div class="pc">~$2</div></div>
-      <div class="pb"><div class="pn">19 &mdash; SOLDER BOARD (optional)</div><div class="pm">Adafruit Perma-Proto half-size (#1609)</div><div class="pw">Same layout as the breadboard, soldered &mdash; see PCB tab</div><div class="pc">~$5</div></div>
+      <div class="pb"><div class="pn">18 &mdash; SOLDER BOARD (optional)</div><div class="pm">Adafruit Perma-Proto half-size (#1609)</div><div class="pw">Same layout as the breadboard, soldered &mdash; see PCB tab</div><div class="pc">~$5</div></div>
     </div>
-    <div class="tot"><div class="tl">ESTIMATED TOTAL</div><div class="tv">~$145</div></div>
+    <div class="tot"><div class="tl">ESTIMATED TOTAL</div><div class="tv">~$143</div></div>
   </div>
 </div>
 
@@ -257,12 +256,11 @@ canvas{display:block;margin:0 auto;}
     <p style="font-size:.78rem;color:var(--txt3);line-height:1.65;margin-top:10px"><strong>How the device tells you what it&rsquo;s doing:</strong></p>
     <ul style="font-size:.78rem;color:var(--txt3);line-height:1.8;margin:6px 0 0 16px">
   <li><strong>Power light:</strong> the Red button glows whenever the box has power. Dark when plugged in = flip the USB-C plug at the box end (the port only passes power one way round), or try another cable.</li>
-  <li><strong>Power-on:</strong> 1 beep + 3 LED flashes = VoiceOver mode &middot; 2 beeps + 6 LED flashes = TD Snap mode</li>
-  <li><strong>Mode switch</strong> (hold Back + Chooser together 3&nbsp;s): rising tones = now TD Snap, falling tones = now VoiceOver, followed by the 1- or 2-beep mode signal</li>
+  <li><strong>Which mode?</strong> With VoiceOver on, turn the wheel. Moving from item to item = VoiceOver mode. Nothing happens = TD Snap mode.</li>
+  <li><strong>Mode switch</strong> (hold Back + Chooser together 3&nbsp;s): the box gives no sound or light outside, so check with the wheel afterwards</li>
   <li><strong>Pico&rsquo;s LED</strong> (inside the box): on 1&nbsp;s / off 1&nbsp;s = VoiceOver, on &frac12;&nbsp;s / off &frac12;&nbsp;s = TD Snap, lit during every keystroke</li>
-  <li><strong>Low battery</strong> (PCB with LiPo only): three low beeps, repeated every minute</li>
 </ul>
-<p style="font-size:.72rem;color:var(--txt3);margin-top:6px">Beeps need the piezo on GP22. Without it the device works the same, just silently &mdash; and the student, who can&rsquo;t see the LED, gets no confirmation. Fit the piezo.</p>
+
   </div>
 
   <div class="card">
@@ -414,7 +412,7 @@ canvas{display:block;margin:0 auto;}
       <tr><td style="padding:5px 10px;border-bottom:1px solid var(--border2)">Row 16 right</td><td>GP19</td><td style="color:#e3b341">&#11044; Yellow button signal</td><td>Yellow M-M + 0.11&quot; pair</td></tr>
       <tr><td style="padding:5px 10px;border-bottom:1px solid var(--border2)">Row 15 right</td><td>GP20</td><td>Chooser button signal</td><td>M-M + 0.11&quot; pair</td></tr>
       <tr><td style="padding:5px 10px;border-bottom:1px solid var(--border2)">Row 14 right</td><td>GP21</td><td>Back button signal (hold with Chooser 3&nbsp;s = switch mode)</td><td>M-M + 0.11&quot; pair</td></tr>
-      <tr style="background:var(--bg3)"><td colspan="4" style="padding:5px 10px;border-bottom:1px solid var(--border2);color:var(--blue)">v10 additions</td></tr><tr><td style="padding:5px 10px;border-bottom:1px solid var(--border2)">Row 1 right</td><td>VBUS</td><td>Red button LED + (power light). LED &minus; &rarr; &minus; rail</td><td>0.11&quot; quick-connect; 5&nbsp;V, never the + rail</td></tr><tr><td style="padding:5px 10px;border-bottom:1px solid var(--border2)">Row 12 right</td><td>GP22</td><td>Piezo + (other leg &rarr; &minus; rail)</td><td>passive piezo direct; magnetic buzzer needs the PCB transistor</td></tr><tr><td style="padding:5px 10px">Left &minus; rail &times;6</td><td>&mdash;</td><td>Each macro button GND</td><td>6&times; black + 0.11&quot; pair</td></tr>
+      <tr style="background:var(--bg3)"><td colspan="4" style="padding:5px 10px;border-bottom:1px solid var(--border2);color:var(--blue)">v10 additions</td></tr><tr><td style="padding:5px 10px;border-bottom:1px solid var(--border2)">Row 1 right</td><td>VBUS</td><td>Red button LED + (power light). LED &minus; &rarr; &minus; rail</td><td>0.11&quot; quick-connect; 5&nbsp;V, never the + rail</td></tr><tr><td style="padding:5px 10px">Left &minus; rail &times;6</td><td>&mdash;</td><td>Each macro button GND</td><td>6&times; black + 0.11&quot; pair</td></tr>
     </table>
     <div class="warn" style="margin-top:12px"><strong>Row 18 right = GND &mdash; skip it!</strong> Jump from row 19 (Green) directly to row 17 (Blue). No wire for row 18.</div>
     <div class="info" style="margin-top:8px"><strong>Encoder terminals:</strong> loosen each screw, insert a jumper&rsquo;s pin, tighten. Go by the labels printed beside the terminals (VCC or +, GND or 0V, A, B); leave any others unused.</div>
@@ -518,7 +516,7 @@ canvas{display:block;margin:0 auto;}
 
     <div class="step"><div class="sn">6</div><div class="sb">
       <h3>Check the mode</h3>
-      <p style="font-size:.78rem;color:var(--txt3);line-height:1.65">At power-on: <strong>one beep</strong> (3 LED flashes) = VoiceOver mode. <strong>Two beeps</strong> (6 flashes) = TD Snap mode &mdash; hold <strong>Back</strong> and <strong>Chooser</strong> together for 3 seconds to switch. With no beeper fitted, the Pico&rsquo;s LED shows it with the lid off: on 1&nbsp;s / off 1&nbsp;s = VoiceOver, twice as fast = TD Snap.</p>
+      <p style="font-size:.78rem;color:var(--txt3);line-height:1.65">With VoiceOver on, turn the wheel. If VoiceOver moves from item to item, the box is in VoiceOver mode. If nothing happens it is in TD Snap mode &mdash; hold <strong>Back</strong> and <strong>Chooser</strong> together for 3 seconds to switch. (With the lid off, the Pico&rsquo;s LED also shows it: on 1&nbsp;s / off 1&nbsp;s = VoiceOver, twice as fast = TD Snap.)</p>
     </div></div>
 
     <div class="step"><div class="sn">7</div><div class="sb">
@@ -529,7 +527,7 @@ canvas{display:block;margin:0 auto;}
     <div class="step"><div class="sn">8</div><div class="sb">
       <h3>Watching games and videos</h3>
       <ul style="font-size:.78rem;color:var(--txt3);line-height:1.8;margin:5px 0 0 16px">
-        <li><strong>Blue</strong> mutes VoiceOver; press it again to bring the voice back. VoiceOver stays on, so the student can unmute it themselves. The device chirps on each press.</li>
+        <li><strong>Blue</strong> mutes VoiceOver; press it again to bring the voice back. VoiceOver stays on, so the student can unmute it themselves.</li>
         <li>While muted, the wheel still moves VoiceOver&rsquo;s focus silently &mdash; unmute before navigating.</li>
         <li><strong>Yellow</strong> plays or pauses. <strong>Chooser</strong> pauses, closes the app and goes Home.</li>
       </ul>
@@ -552,7 +550,7 @@ canvas{display:block;margin:0 auto;}
     <div class="info" style="margin:8px 0;padding:10px 12px;background:#0d1f3a;border-left:3px solid #58a6ff;border-radius:0 6px 6px 0;font-size:.76rem;color:#79c0ff;line-height:1.6">For a student who is blind and non-speaking, VoiceOver gets them around the iPad and into TD Snap; TD Snap&rsquo;s <strong>Audio Feedback</strong> (step 3) tells them what the scan highlight is on. Both matter.</div>
     <div class="step"><div class="sn">1</div><div class="sb">
       <h3>Switch the device to TD Snap mode</h3>
-      <p style="font-size:.78rem;color:var(--txt3);line-height:1.65">Hold <strong>Back</strong> and <strong>Chooser</strong> together for <strong>3 seconds</strong>. Rising tones, then two beeps = TD Snap mode. The mode is remembered after power-off. Do the same again to return to VoiceOver (falling tones, one beep).</p>
+      <p style="font-size:.78rem;color:var(--txt3);line-height:1.65">Hold <strong>Back</strong> and <strong>Chooser</strong> together for <strong>3 seconds</strong>. The box gives no sound or light when it switches. The mode is remembered after power-off. Do the same again to return to VoiceOver mode.</p>
       <div class="warn" style="margin-top:6px">Switch back to VoiceOver mode before using VoiceOver. In TD Snap mode the wheel sends Space, which VoiceOver ignores, so the box looks broken: the wheel does nothing and only Chooser (Tab) seems to work.</div>
     </div></div>
 
@@ -609,7 +607,7 @@ canvas{display:block;margin:0 auto;}
 <div id="ble" class="tc">
   <div class="card">
     <div class="ct"><span class="ctn">!</span>Firmware &mdash; v10.11</div>
-    <div class="info" style="margin:8px 0;padding:10px 12px;background:#0d1f3a;border-left:3px solid #58a6ff;border-radius:0 6px 6px 0;font-size:.76rem;color:#79c0ff;line-height:1.6"><strong>v10 changes:</strong> VoiceOver commands no longer depend on Quick Nav &middot; USB <em>or</em> Bluetooth, never both &middot; encoder read by interrupt, one step per click &middot; debounce plus adjustable hold time and ignore-repeat &middot; beeper feedback &middot; two-button mode switch &middot; Red no longer turns VoiceOver off; <strong>Blue mutes/unmutes VoiceOver (v10.1)</strong> &middot; <strong>wheel stops when the hand stops (v10.2)</strong> &middot; <strong>USB never freezes, wakes a sleeping iPad, reboots itself if it ever hangs (v10.3)</strong> &middot; <strong>mode switch needs Back + Chooser held together, so one long press can&rsquo;t change modes; USB serial test port (v10.4)</strong> &middot; <strong>key combinations typed like a person, timed from when the iPad picks them up, so iPad VoiceOver accepts them (v10.5)</strong> &middot; <strong>fast wheel spins no longer open Dictation (v10.6)</strong> &middot; <strong>Chooser changes Home Screen page: press = next, hold 1&nbsp;s = previous (v10.7)</strong> &middot; <strong>Back + Green held 3&nbsp;s toggles VoiceOver Quick Nav (v10.8)</strong> &middot; <strong>Chooser closes the current app instead of turning pages (v10.9); pauses video first so it doesn&rsquo;t go to Picture in Picture (v10.10)</strong> &middot; optional battery monitor. Compiles cleanly against arduino-pico 6.3.0 (Pico 2 W, IPv4 + Bluetooth) and passes 44 simulated scenarios (wheel, buttons, debounce, two-button mode switch, key-combination timing including a slow-polling iPad, Control never pressed alone, USB/Bluetooth routing, USB stall and sleep, watchdog, serial test port).</div>
+    <div class="info" style="margin:8px 0;padding:10px 12px;background:#0d1f3a;border-left:3px solid #58a6ff;border-radius:0 6px 6px 0;font-size:.76rem;color:#79c0ff;line-height:1.6"><strong>v10 changes:</strong> VoiceOver commands no longer depend on Quick Nav &middot; USB <em>or</em> Bluetooth, never both &middot; encoder read by interrupt, one step per click &middot; debounce plus adjustable hold time and ignore-repeat &middot; two-button mode switch &middot; Red no longer turns VoiceOver off; <strong>Blue mutes/unmutes VoiceOver (v10.1)</strong> &middot; <strong>wheel stops when the hand stops (v10.2)</strong> &middot; <strong>USB never freezes, wakes a sleeping iPad, reboots itself if it ever hangs (v10.3)</strong> &middot; <strong>mode switch needs Back + Chooser held together, so one long press can&rsquo;t change modes; USB serial test port (v10.4)</strong> &middot; <strong>key combinations typed like a person, timed from when the iPad picks them up, so iPad VoiceOver accepts them (v10.5)</strong> &middot; <strong>fast wheel spins no longer open Dictation (v10.6)</strong> &middot; <strong>Chooser changes Home Screen page: press = next, hold 1&nbsp;s = previous (v10.7)</strong> &middot; <strong>Back + Green held 3&nbsp;s toggles VoiceOver Quick Nav (v10.8)</strong> &middot; <strong>Chooser closes the current app instead of turning pages (v10.9); pauses video first so it doesn&rsquo;t go to Picture in Picture (v10.10)</strong> &middot; optional battery monitor. Compiles cleanly against arduino-pico 6.3.0 (Pico 2 W, IPv4 + Bluetooth) and passes 44 simulated scenarios (wheel, buttons, debounce, two-button mode switch, key-combination timing including a slow-polling iPad, Control never pressed alone, USB/Bluetooth routing, USB stall and sleep, watchdog, serial test port).</div>
     <div class="step"><div class="sn">&#9889;</div><div class="sb">
       <h3>Quickest: install the ready-made firmware (no Arduino needed)</h3>
       <p style="font-size:.78rem;color:var(--txt3);line-height:1.65">This installs firmware v10.11 with the default settings. Use the Arduino steps below only if you need to change settings.</p>
@@ -617,7 +615,7 @@ canvas{display:block;margin:0 auto;}
       <ol style="font-size:.78rem;color:var(--txt3);line-height:1.8;margin:5px 0 0 16px">
         <li>Unplug the Pico. Hold its white <strong>BOOTSEL</strong> button, plug the USB cable into the computer, then let go.</li>
         <li>A drive named <strong>RP2350</strong> appears.</li>
-        <li>Drag <code>voiceover_device_ble.uf2</code> onto it. The drive disappears and the Pico restarts: 3 LED flashes and one beep.</li>
+        <li>Drag <code>voiceover_device_ble.uf2</code> onto it. The drive disappears and the Pico restarts (its LED flashes 3 times).</li>
       </ol>
       <p style="font-size:.78rem;color:var(--txt3);line-height:1.65;margin-top:6px"><strong>Mac:</strong> a &ldquo;Disk Not Ejected Properly&rdquo; message afterwards is normal. If Finder refuses the copy, use Terminal: <code>cp -X ~/Downloads/voiceover_device_ble.uf2 /Volumes/RP2350/</code> (or <code>rsync ~/Downloads/voiceover_device_ble.uf2 /Volumes/RP2350/</code>).</p>
       <p style="font-size:.78rem;color:var(--txt3);line-height:1.65;margin-top:4px"><strong>Windows:</strong> drag it onto the RP2350 drive in File Explorer.</p>
@@ -658,7 +656,7 @@ canvas{display:block;margin:0 auto;}
         <li>Wait ~30 seconds for "Done uploading"</li>
         <li>Later updates don&rsquo;t need BOOTSEL: pick the Pico&rsquo;s port and click Upload. The box&rsquo;s USB-C port works for this too (right way up).</li>
       </ol>
-      <div class="ok">LED flashes 3 times (and one beep, if the piezo is fitted) &mdash; firmware is running in VoiceOver mode.</div>
+      <div class="ok">LED flashes 3 times &mdash; firmware is running in VoiceOver mode.</div>
     </div></div>
 
         <div class="step"><div class="sn">F</div><div class="sb">
@@ -670,7 +668,7 @@ canvas{display:block;margin:0 auto;}
         <li><code>IGNORE_REPEAT_MS</code> &mdash; ignores a second press of the same button within this window. Filters double-hits. Try 300&ndash;800.</li>
         <li><code>MODE_HOLD_MS</code> &mdash; how long to hold Back + Chooser together to switch modes (default 3000).</li>
         <li><code>ENC_MAX_PENDING</code> &mdash; how many wheel steps can queue up when the wheel is spun fast (default 3). Lower = stops sooner.</li>
-        <li><code>ENC_REVERSE</code>, <code>AUDIO_ENABLED</code>, <code>CLICK_ON_ACTION</code>, <code>BATT_SENSE_ENABLED</code> (PCB with battery only).</li>
+        <li><code>ENC_REVERSE</code>, <code>BATT_SENSE_ENABLED</code> (PCB with battery only).</li>
       </ul>
       <p style="font-size:.78rem;color:var(--txt3);line-height:1.65;margin-top:6px">Set these with the student&rsquo;s OT &mdash; they&rsquo;re the same ideas as iOS Switch Control&rsquo;s Hold Duration and Ignore Repeat.</p>
     </div></div>
@@ -1645,7 +1643,7 @@ Beep     beepQ[BQLEN];
       </div>
       <div style="background:var(--bg3);border-radius:8px;padding:10px 12px;font-size:.79rem;color:var(--txt2);display:flex;gap:10px;align-items:flex-start">
         <span style="color:var(--green);font-size:1rem;flex-shrink:0">✓</span>
-        <span>Is the device in the right <strong>mode</strong>? At power-on, one beep = VoiceOver, two beeps = TD Snap (or, with the lid off, the Pico&rsquo;s LED: slow blink = VoiceOver, fast = TD Snap). Hold <strong>Back</strong> and <strong>Chooser</strong> together 3&nbsp;seconds to switch.</span>
+        <span>Is the device in the right <strong>mode</strong>? With VoiceOver on, turn the wheel: items move = VoiceOver mode, nothing happens = TD Snap mode. Hold <strong>Back</strong> and <strong>Chooser</strong> together 3&nbsp;seconds to switch.</span>
       </div>
       <div style="background:var(--bg3);border-radius:8px;padding:10px 12px;font-size:.79rem;color:var(--txt2);display:flex;gap:10px;align-items:flex-start">
         <span style="color:var(--green);font-size:1rem;flex-shrink:0">✓</span>
@@ -1750,7 +1748,7 @@ Beep     beepQ[BQLEN];
       <div class="trouble-item">
         <div class="ti-if"><div class="ti-if-label">If</div><p>With VoiceOver on, the wheel does nothing and only Chooser (or the big button) seems to do anything</p></div>
         <div class="ti-then"><div class="ti-then-label">Try this</div>
-          <p>The device is in <strong>TD Snap mode</strong>. It sends Space, Enter and Tab instead of VoiceOver commands, and VoiceOver ignores most of them. Unplug and replug the box: two beeps = TD Snap, one beep = VoiceOver (with the lid off, the Pico&rsquo;s LED blinks faster in TD Snap mode). Hold <strong>Back</strong> and <strong>Chooser</strong> together for 3 seconds to switch back. The mode survives unplugging, so a box left in TD Snap mode stays that way.</p>
+          <p>The device is in <strong>TD Snap mode</strong>. It sends Space, Enter and Tab instead of VoiceOver commands, and VoiceOver ignores most of them. With the lid off, the Pico&rsquo;s LED blinks twice as fast in TD Snap mode. Hold <strong>Back</strong> and <strong>Chooser</strong> together for 3 seconds to switch back. The mode survives unplugging, so a box left in TD Snap mode stays that way.</p>
         </div>
       </div>
       <div class="trouble-item">
@@ -1819,12 +1817,6 @@ Beep     beepQ[BQLEN];
           <p>Press <strong>Blue</strong> to mute it (VO+S). Press Blue again to unmute. VoiceOver stays on the whole time.</p>
         </div>
       </div>
-      <div class="trouble-item">
-        <div class="ti-if"><div class="ti-if-label">If</div><p>No beeps</p></div>
-        <div class="ti-then"><div class="ti-then-label">Try this</div>
-          <p>Check the piezo is on GP22 (row 12 right) with its other leg to the &minus; rail, and <code>AUDIO_ENABLED</code> is true.</p>
-        </div>
-      </div>
     </div>
 
     <div class="trouble-section">
@@ -1861,7 +1853,7 @@ Beep     beepQ[BQLEN];
           <ul>
             <li>1. Unplug the USB cable, wait 10 seconds, plug back in</li>
             <li>2. Make sure VoiceOver is on in the iPad&rsquo;s Settings and the Red button is lit</li>
-            <li>3. Listen for the power-on beep(s) and confirm the mode</li>
+            <li>3. Check the mode: with VoiceOver on, the wheel should move between items</li>
             <li>4. Open the box and gently press all wires firmly into the breadboard</li>
             <li>5. Try a completely different USB cable</li>
             <li>6. Restart the iPad</li>
@@ -2249,7 +2241,7 @@ dg:`<svg viewBox="0 0 300 115" width="300" xmlns="http://www.w3.org/2000/svg">
 <rect x="128" y="44" width="40" height="56" rx="2" fill="#0d1f3a"/>
 <text x="148" y="62" text-anchor="middle" font-family="Share Tech Mono,monospace" font-size="6" fill="#58a6ff">iPhone/iPad</text>
 <text x="148" y="76" text-anchor="middle" font-family="Share Tech Mono,monospace" font-size="5.5" fill="#2ea043">VoiceOver ON</text>
-<text x="148" y="88" text-anchor="middle" font-family="Share Tech Mono,monospace" font-size="5.5" fill="#2ea043">1 beep = VO mode</text>
+<text x="148" y="88" text-anchor="middle" font-family="Share Tech Mono,monospace" font-size="5.5" fill="#2ea043">VoiceOver mode</text>
 ${['#f85149','#2ea043','#1f6feb','#e3b341','#8b949e','#8b949e'].map((c,i)=>`<circle cx="${10+i*17}" cy="100" r="7" fill="${c}33" stroke="${c}" stroke-width="1.5"/>`).join('')}
 <text x="55" y="113" text-anchor="middle" font-family="Share Tech Mono,monospace" font-size="6" fill="#8b949e">test each button</text>
 <text x="148" y="31" text-anchor="middle" font-family="Share Tech Mono,monospace" font-size="6" fill="#58a6ff">plug USB here</text>
@@ -2258,10 +2250,10 @@ html:`<p class="ins">Plug in and test everything before closing the box. A loose
 <div class="sts">
 <div class="sti"><div class="stk">1</div><div>Plug the iPad&rsquo;s cable into the box&rsquo;s USB-C port. The <strong>Red button lights</strong>; if not, flip the plug at the box.</div></div>
 <div class="sti"><div class="stk">2</div><div>Turn on VoiceOver: <strong>Settings &rarr; Accessibility &rarr; VoiceOver &rarr; ON</strong>.</div></div>
-<div class="sti"><div class="stk">3</div><div>Listen for <strong>one beep</strong> at power-on (VoiceOver mode). Two beeps = TD Snap mode &mdash; hold <strong>Back</strong> and <strong>Chooser</strong> together for 3 seconds to switch.</div></div>
+<div class="sti"><div class="stk">3</div><div>With VoiceOver on, turn the wheel: it should move from item to item. If nothing happens the box is in TD Snap mode &mdash; hold <strong>Back</strong> and <strong>Chooser</strong> together for 3 seconds to switch.</div></div>
 <div class="sti"><div class="stk">4</div><div><strong>Wheel:</strong> turn clockwise &rarr; VoiceOver moves to next item. Counterclockwise &rarr; previous item.</div></div>
 <div class="sti"><div class="stk">5</div><div><strong>Big select button:</strong> press &rarr; activates the focused item.</div></div>
-<div class="sti"><div class="stk">6</div><div><strong>Each button:</strong> Red (reads from here), Green (Home screen), Blue (mutes speech, with a chirp; press again to unmute), Yellow (play/pause), Chooser (closes the app), Back (goes back).</div></div>
+<div class="sti"><div class="stk">6</div><div><strong>Each button:</strong> Red (reads from here), Green (Home screen), Blue (mutes speech; press again to unmute), Yellow (play/pause), Chooser (closes the app), Back (goes back).</div></div>
 </div>
 <div class="wn"><strong>Something not working?</strong> The most common cause is a wire that looks inserted but isn't fully down. Press each wire firmly until it clicks into the breadboard hole.</div>
 <div class="ok">Everything works? Stick Command strips to the bottom of the breadboard and box interior, tuck wires neatly, close the lid. You're done!</div>`
