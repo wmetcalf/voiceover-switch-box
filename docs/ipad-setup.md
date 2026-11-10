@@ -21,7 +21,7 @@ Do this once on the student's iPad. Each item says why it matters.
 
 - [ ] **Picture in Picture: turn off Start PiP Automatically.** Settings → General → Picture in Picture. Otherwise, leaving Netflix or Apple TV during a video keeps it playing in a floating window.
 - [ ] **Dictation shortcut off.** If iPadOS offers a "press Control twice" Dictation shortcut (under Settings → General → Keyboard), turn it off. Current firmware avoids triggering it, but there's no reason to leave it on.
-- [ ] **Keep the student's apps on the first Home Screen page or in the dock.** Changing pages needs a gesture the box doesn't have a button for. Green (Home) always returns to page 1.
+- [ ] **Keep the student's apps on the first Home Screen page or in the dock.** Changing pages needs a gesture the box doesn't have a button for. Pressing Green (Home) again on the Home Screen goes back to the first page.
 - [ ] **Focus / Do Not Disturb during games and videos,** so notifications don't interrupt.
 
 ## TD Snap

@@ -13,7 +13,7 @@ Adafruit product numbers are the parts the original box was built with. Equivale
 | 1 | Arcade Button with LED, 30 mm, translucent blue | [3490](https://www.adafruit.com/product/3490) | Mute speech |
 | 1 | Arcade Button with LED, 30 mm, translucent yellow | [3488](https://www.adafruit.com/product/3488) | Play/pause |
 | 2 | Arcade Button with LED, 30 mm, translucent clear | [3491](https://www.adafruit.com/product/3491) | Chooser, Back |
-| 2 packs | Quick-connect wire pairs, 0.11" (10-pack) | [1152](https://www.adafruit.com/product/1152) | One pair per 30 mm button's switch, plus one for the Red light; one pack is enough unless you light every button. Each pair's two spade clips are joined in a 2-pin plug that takes jumper pins; cut it off for screw terminals. |
+| 1 pack | Quick-connect wire pairs, 0.11" (10-pack) | [1152](https://www.adafruit.com/product/1152) | One pair per 30 mm button's switch, plus one for the Red light: 7 pairs. Buy a second pack if you light every button. Each pair's two spade clips are joined in a 2-pin plug that takes jumper pins; cut it off for screw terminals. |
 | 1 pack | Quick-connect wire pairs, 0.187" (10-pack) | [3835](https://www.adafruit.com/product/3835) | One pair for the 100 mm button's switch. Same 2-pin plug. |
 
 ## Electronics
@@ -29,6 +29,7 @@ Adafruit product numbers are the parts the original box was built with. Equivale
 | — | 22 AWG stranded hook-up wire | For screw terminals and longer runs |
 | — | Wago 221-415 lever connectors (optional) | Ground and 5 V buses without soldering. |
 | 1 | Passive piezo buzzer (optional) | Mode and start-up beeps. GP22 to GND. |
+| 3 | M3 screws, about 10 mm (plus nuts if the encoder's mounting holes aren't threaded) | Fix the encoder to the lid. |
 
 ## Enclosure
 

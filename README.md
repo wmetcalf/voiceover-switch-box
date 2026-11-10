@@ -76,7 +76,7 @@ It covers:
 - USB/Bluetooth routing, including a USB host that stops reading and one that is asleep.
 - The watchdog and the serial test port.
 
-CI runs the simulator and a full firmware build on every push.
+CI runs the simulator and a full firmware build on every push, then publishes `main` to GitHub Pages (the `gh-pages` branch).
 
 ### Serial test port
 

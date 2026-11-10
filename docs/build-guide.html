@@ -197,7 +197,7 @@ canvas{display:block;margin:0 auto;}
     <div class="ct"><span class="ctn">1</span>Complete Parts List</div>
     <div class="pg">
       <div class="pb"><div class="pn">01 — BRAIN</div><div class="pm">Raspberry Pi Pico 2 WH</div><div class="pw"><a href="https://www.amazon.com/dp/B0DPF9N1MN" target="_blank" rel="noopener" style="color:var(--blue)">Amazon B0DPF9N1MN</a></div><div class="pc">~$10</div></div>
-      <div class="pb"><div class="pn">02 — WHEEL</div><div class="pm">Adafruit 60mm CNC Rotary Encoder</div><div class="pw">adafruit.com — #5734 black or #5735 silver</div><div class="pc">~$25</div></div>
+      <div class="pb"><div class="pn">02 — WHEEL</div><div class="pm">Adafruit 60mm CNC Rotary Encoder</div><div class="pw">adafruit.com — #5734</div><div class="pc">~$25</div></div>
       <div class="pb"><div class="pn">03 — SELECT BUTTON</div><div class="pm">Adafruit 100mm Arcade Button</div><div class="pw">adafruit.com — #1185 red or #1187 white</div><div class="pc">~$10</div></div>
       <div class="pb"><div class="pn">04 — RED MACRO</div><div class="pm">Adafruit 30mm LED Button — Red</div><div class="pw">adafruit.com — #3489</div><div class="pc">~$3</div></div>
       <div class="pb"><div class="pn">05 — GREEN MACRO</div><div class="pm">Adafruit 30mm LED Button — Green</div><div class="pw">adafruit.com — #3487</div><div class="pc">~$3</div></div>
@@ -205,7 +205,7 @@ canvas{display:block;margin:0 auto;}
       <div class="pb"><div class="pn">07 — YELLOW MACRO</div><div class="pm">Adafruit 30mm LED Button — Yellow</div><div class="pw">adafruit.com — #3488</div><div class="pc">~$3</div></div>
       <div class="pb"><div class="pn">08 — CHOOSER + BACK</div><div class="pm">Adafruit 30mm LED Button — Clear &times;2</div><div class="pw">adafruit.com — #3491</div><div class="pc">~$6</div></div>
       <div class="pb"><div class="pn">09 — SELECT WIRES</div><div class="pm">Quick-Connect Wires 0.187" (10-pack)</div><div class="pw">adafruit.com — #3835</div><div class="pc">~$5</div></div>
-      <div class="pb"><div class="pn">10 — MACRO WIRES</div><div class="pm">Quick-Connect Wire Pairs 0.11" (10-pack) &times;2</div><div class="pw">adafruit.com — #1152 (switch + LED tabs)</div><div class="pc">~$10</div></div>
+      <div class="pb"><div class="pn">10 — MACRO WIRES</div><div class="pm">Quick-Connect Wire Pairs 0.11" (10-pack)</div><div class="pw">adafruit.com — #1152 &middot; 7 pairs used; a second pack if you light every button</div><div class="pc">~$5</div></div>
       <div class="pb"><div class="pn">11 — JUMPERS</div><div class="pm">ELEGOO Jumper Wire Kit (M-M and F-M)</div><div class="pw"><a href="https://www.amazon.com/dp/B01EV70C78" target="_blank" rel="noopener" style="color:var(--blue)">Amazon B01EV70C78</a> (120-piece)</div><div class="pc">~$7</div></div>
       <div class="pb"><div class="pn">12 — BREADBOARD</div><div class="pm">400-Point Solderless Breadboard</div><div class="pw"><a href="https://www.amazon.com/dp/B08Y59P6D1" target="_blank" rel="noopener" style="color:var(--blue)">Amazon B08Y59P6D1</a> (BOJACK kit, 830 + 400 point)</div><div class="pc">~$4</div></div>
       <div class="pb"><div class="pn">13 — BOX</div><div class="pm">LeMotech 263×182×95mm IP65 ABS Box (pale gray)</div><div class="pw"><a href="https://www.amazon.com/dp/B0785ZBNKK" target="_blank" rel="noopener" style="color:var(--blue)">Amazon B0785ZBNKK</a></div><div class="pc">~$18</div></div>
@@ -216,7 +216,7 @@ canvas{display:block;margin:0 auto;}
       <div class="pb"><div class="pn">18 &mdash; BEEPER (v10)</div><div class="pm">3&nbsp;V passive piezo or magnetic buzzer, ~12&nbsp;mm</div><div class="pw">Audio feedback &mdash; the only feedback a blind user gets</div><div class="pc">~$2</div></div>
       <div class="pb"><div class="pn">19 &mdash; SOLDER BOARD (optional)</div><div class="pm">Adafruit Perma-Proto half-size (#1609)</div><div class="pw">Same layout as the breadboard, soldered &mdash; see PCB tab</div><div class="pc">~$5</div></div>
     </div>
-    <div class="tot"><div class="tl">ESTIMATED TOTAL</div><div class="tv">~$150</div></div>
+    <div class="tot"><div class="tl">ESTIMATED TOTAL</div><div class="tv">~$145</div></div>
   </div>
 </div>
 
@@ -366,8 +366,8 @@ canvas{display:block;margin:0 auto;}
     <table class="tbl">
       <thead><tr><th>COLOR</th><th>FROM (Pico pin)</th><th>TO</th><th>CONNECTOR</th></tr></thead>
       <tbody>
-        <tr><td><span class="wd" style="background:#f85149"></span>Red</td><td>3.3V — right + rail row 5</td><td>Encoder VCC screw terminal</td><td>M-M jumper</td></tr>
-        <tr><td><span class="wd" style="background:#484f58;border:1px solid #6e7681"></span>Black</td><td>GND — right − rail row 3</td><td>Encoder GND screw terminal</td><td>M-M jumper</td></tr>
+        <tr><td><span class="wd" style="background:#f85149"></span>Red</td><td>3.3V — right + rail</td><td>Encoder VCC screw terminal</td><td>M-M jumper</td></tr>
+        <tr><td><span class="wd" style="background:#484f58;border:1px solid #6e7681"></span>Black</td><td>GND — left − rail</td><td>Encoder GND screw terminal</td><td>M-M jumper</td></tr>
         <tr><td><span class="wd" style="background:#e3b341"></span>Yellow</td><td>GP10 — left col e, row 14</td><td>Encoder A screw terminal</td><td>M-M jumper</td></tr>
         <tr><td><span class="wd" style="background:#e3b341"></span>Yellow (dashed)</td><td>GP11 — left col e, row 15</td><td>Encoder B screw terminal</td><td>M-M jumper</td></tr>
         <tr><td><span class="wd" style="background:#bc8cff"></span>Purple</td><td>GP15 — left col e, row 20</td><td>Select button terminal 1</td><td>M-M + 0.187" pair</td></tr>
@@ -463,7 +463,7 @@ canvas{display:block;margin:0 auto;}
     <div class="step"><div class="sn">7</div><div class="sb"><h3>Mount the six 30mm buttons in a row</h3><p>Insert each 30mm button, tighten ring from below. Clip 0.11" wires onto the switch terminals, and onto the Red button&rsquo;s two LED tabs (the power light). With the box standing upright the row becomes the left-hand column, Red at the top.</p><div class="info">Order: Red (GP16) · Green (GP17) · Blue (GP18) · Yellow (GP19) · Chooser (GP20, clear) · Back (GP21, clear)</div></div></div>
     <div class="step"><div class="sn">8</div><div class="sb"><h3>Wire the breadboard</h3><p>Pico on breadboard straddling center gap, USB port facing out. Wire all connections per the WIRING tab.</p></div></div>
     <div class="step"><div class="sn">9</div><div class="sb"><h3>TEST before closing the box</h3><p>Plug the iPad in and test the wheel, the select button and all six buttons. The Red button should light. Fix issues now while the lid is off.</p><div class="ok">Everything working? Close the box.</div><div class="warn"><strong>Do not close until all buttons work.</strong></div></div></div>
-    <div class="step"><div class="sn">10</div><div class="sb"><h3>Close and finish</h3><p>Tighten 4 lid screws. Add rubber feet to bottom corners.</p></div></div>
+    <div class="step"><div class="sn">10</div><div class="sb"><h3>Close and finish</h3><p>Tighten the lid screws. Add rubber feet to bottom corners.</p></div></div>
   </div>
 </div>
 
@@ -511,7 +511,7 @@ canvas{display:block;margin:0 auto;}
       <ul style="font-size:.78rem;color:var(--txt3);line-height:1.8;margin:5px 0 0 16px">
         <li><strong>Picture in Picture:</strong> <strong>Settings &rarr; General &rarr; Picture in Picture &rarr; Start PiP Automatically &rarr; OFF</strong>. Otherwise, going Home from Netflix or Apple TV during a video keeps it playing in a floating window.</li>
         <li><strong>Dictation shortcut:</strong> if <strong>Settings &rarr; General &rarr; Keyboard</strong> offers a &ldquo;press Control twice&rdquo; Dictation shortcut, turn it off. Current firmware avoids triggering it, but there&rsquo;s no reason to leave it on.</li>
-        <li><strong>Home Screen:</strong> keep the student&rsquo;s apps on the first page or in the dock. The box has no button for changing pages; Green (Home) always returns to page 1.</li>
+        <li><strong>Home Screen:</strong> keep the student&rsquo;s apps on the first page or in the dock. The box has no button for changing pages; pressing Green (Home) again on the Home Screen goes back to the first page.</li>
         <li><strong>Notifications:</strong> turn on a <strong>Focus / Do Not Disturb</strong> mode during games and videos so alerts don&rsquo;t interrupt.</li>
       </ul>
     </div></div>
