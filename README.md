@@ -13,6 +13,8 @@ It was built for one student, so every choice favours being impossible to get st
 
 ## Controls
 
+A one-page printable version of this, laid out like the box: [button card (PDF)](docs/button-card.pdf), or [as a web page](https://wmetcalf.github.io/voiceover-switch-box/docs/button-card.html).
+
 **Layout:** the wheel is top right and the big select button bottom right. The left column, top to bottom, is Red, Green, Blue, Yellow, then the two clear buttons: Chooser, then Back at the bottom.
 
 | Control | VoiceOver mode | TD Snap mode |
@@ -122,6 +124,7 @@ hardware/wiring.md               pin map and wiring
 hardware/pcb/                    optional carrier PCB (SKiDL netlist, untested)
 docs/ipad-setup.md               iPad settings checklist
 docs/build-guide.html            full illustrated build guide (open in a browser)
+docs/button-card.pdf             one-page printable card: what each control does (.html is its source)
 docs/images/                     photos
 tools/box-key-check.html         web page that shows exactly what keys a device receives (live at
                                  https://wmetcalf.github.io/voiceover-switch-box/tools/box-key-check.html)
