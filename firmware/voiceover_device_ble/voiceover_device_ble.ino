@@ -1,10 +1,11 @@
 /*
  * ═══════════════════════════════════════════════════════════════════
- * VoiceOver + TD Snap Adaptive Device — firmware v10.10
+ * VoiceOver + TD Snap Adaptive Device — firmware v10.11
  * Raspberry Pi Pico 2 W · Earle Philhower arduino-pico core
  *
  *   Board: Raspberry Pi Pico 2 W
  *   Tools > IP/Bluetooth Stack > IPv4 + Bluetooth      <- REQUIRED
+ *   Tools > USB Stack > Pico SDK (the default)
  *
  * Changes from v9
  *   • VoiceOver mode sends VO-prefixed commands (Ctrl+Option+…), so it
@@ -54,7 +55,9 @@
  *   • v10.10: CHOOSER close-app sends media Pause first, then Cmd+W, then Home,
  *     so a playing video isn't pushed into Picture in Picture (v10.9 went Home
  *     first, which started PiP, and its app-switcher quit didn't take).
- *   • Four spare switch inputs on GP2–GP5 (not wired on the original box).
+ *   • v10.11: clean-up, no change in behaviour. Removed the four unused spare
+ *     inputs on GP2–GP5 and the actions no button used any more (item chooser,
+ *     page turning, a bare Control tap).
  *   • Optional battery monitoring with low-battery beeps.
  *
  * Everything you are likely to tune is in the SETTINGS block below.
@@ -81,7 +84,7 @@ extern "C" {                          // TinyUSB device API
 // iOS caches the name of a device it has seen before; after changing it,
 // Forget the device, toggle Bluetooth off/on, and re-pair.
 #define BLE_NAME            "VoiceOver Device"
-#define FW_VERSION          "v10.10"
+#define FW_VERSION          "v10.11"
 
 // Wheel: quadrature counts per navigation step.
 // The 60 mm encoder has 100 detents/rev and gives 4 counts per detent.
@@ -114,31 +117,25 @@ extern "C" {                          // TinyUSB device API
 #define BLU_PIN    18   // pin 24
 #define YLW_PIN    19   // pin 25
 #define CHO_PIN    20   // pin 26  "Chooser"
-#define BACK_PIN   21   // pin 27  "Escape" — Back (hold with CHOOSER 3 s = switch mode)
-#define JACK1_PIN   2   // pin 4   spare input 1 (not wired on the original box)
-#define JACK2_PIN   3   // pin 5   spare input 2
-#define JACK3_PIN   4   // pin 6   spare input 3
-#define JACK4_PIN   5   // pin 7   spare input 4
+#define BACK_PIN   21   // pin 27  Back (hold with CHOOSER 3 s = switch mode)
 #define PIEZO_PIN  22   // pin 29  (optional)
 #define BATT_PIN   26   // pin 31  ADC0 (optional)
 
 // ═══════════════════════════ ACTIONS ══════════════════════════════
 enum Action : uint8_t {
   A_NONE, A_NEXT, A_PREV, A_SELECT, A_BACK, A_HOME,
-  A_SPEECH, A_CHOOSER, A_READ, A_MAGIC, A_TAB, A_MUTE, A_PAGE_NEXT, A_PAGE_PREV, A_CLOSE_APP
+  A_READ, A_MAGIC, A_TAB, A_MUTE, A_CLOSE_APP
 };
 
 enum Mode : uint8_t { MODE_VOICEOVER = 0, MODE_TDSNAP = 1 };
 
 // Input order used by the tables below
 enum InputIdx : uint8_t {
-  IN_SEL, IN_RED, IN_GRN, IN_BLU, IN_YLW, IN_CHO, IN_BACK,
-  IN_J1, IN_J2, IN_J3, IN_J4, NUM_INPUTS
+  IN_SEL, IN_RED, IN_GRN, IN_BLU, IN_YLW, IN_CHO, IN_BACK, NUM_INPUTS
 };
 
 const uint8_t INPUT_PINS[NUM_INPUTS] = {
-  SEL_PIN, RED_PIN, GRN_PIN, BLU_PIN, YLW_PIN, CHO_PIN, BACK_PIN,
-  JACK1_PIN, JACK2_PIN, JACK3_PIN, JACK4_PIN
+  SEL_PIN, RED_PIN, GRN_PIN, BLU_PIN, YLW_PIN, CHO_PIN, BACK_PIN
 };
 
 // What each input does in each mode.
@@ -150,11 +147,7 @@ const Action INPUT_ACTION[2][NUM_INPUTS] = {
     A_MUTE,     // blue          VO+S        mute/unmute VoiceOver speech (for videos)
     A_MAGIC,    // yellow        VO+Hyphen   Magic Tap (play/pause, answer call)
     A_CLOSE_APP,// chooser       close the current app: media Pause, Cmd+W, Cmd+H
-    A_BACK,     // back          Escape
-    A_NEXT,     // spare 1       next item
-    A_SELECT,   // spare 2       activate
-    A_PREV,     // spare 3       previous item
-    A_BACK },   // spare 4       back
+    A_BACK },   // back          Escape
   // TD Snap mode (TD Snap: Scanning, 2 Switch Step Scan, Space = next, Enter = select)
   { A_SELECT,   // big select    Enter
     A_NEXT,     // red           Space (spare next)
@@ -162,11 +155,7 @@ const Action INPUT_ACTION[2][NUM_INPUTS] = {
     A_BACK,     // blue          Escape
     A_HOME,     // yellow        Cmd+H  (iPad Home)
     A_TAB,      // chooser       Tab
-    A_BACK,     // back          Escape
-    A_NEXT,     // spare 1       Space
-    A_SELECT,   // spare 2       Enter
-    A_BACK,     // spare 3       Escape
-    A_NONE }    // spare 4       unused
+    A_BACK }    // back          Escape
 };
 
 // ═══════════════════════════ STATE ════════════════════════════════
@@ -396,9 +385,7 @@ void doAction(Action a) {
       case A_SELECT:  queueKeys(VO, ' ');             break;
       case A_BACK:    queueKeys(KEY_ESC);             break;
       case A_HOME:    queueKeys(VO, 'h');             break;
-      case A_SPEECH:  queueKeys(KEY_LEFT_CTRL);       break;
       case A_MUTE:    queueKeys(VO, 's'); beep(1319, 50, 0); break;  // chirp confirms the press
-      case A_CHOOSER: queueKeys(VO, 'i');             break;
       case A_CLOSE_APP:
         // Pause first (media Pause, not the play/pause toggle), so going Home
         // can't push a playing video into Picture in Picture. Then Cmd+W, which
@@ -409,8 +396,6 @@ void doAction(Action a) {
         queueKeysEx(400, false, KEY_LEFT_GUI, 'w');
         queueKeysEx(900, false, KEY_LEFT_GUI, 'h');
         break;
-      case A_PAGE_NEXT: queueKeys(KEY_LEFT_ALT, KEY_RIGHT_ARROW); break;  // VoiceOver scroll one page
-      case A_PAGE_PREV: queueKeys(KEY_LEFT_ALT, KEY_LEFT_ARROW);  break;
       case A_READ:    queueKeys(VO, 'a');             break;
       case A_MAGIC:   queueKeys(VO, '-');             break;
       case A_TAB:     queueKeys(KEY_TAB);             break;
@@ -424,7 +409,7 @@ void doAction(Action a) {
       case A_BACK:    queueKeys(KEY_ESC);             break;
       case A_HOME:    queueKeys(KEY_LEFT_GUI, 'h');   break;
       case A_TAB:     queueKeys(KEY_TAB);             break;
-      default: break;                                         // speech/chooser/read/magic: no TD Snap equivalent
+      default: break;                                         // read/magic/mute/close-app: no TD Snap equivalent
     }
   }
 }
@@ -543,7 +528,7 @@ void serviceEncoder() {
 // port, 115200 baud). One character per command:
 //   n / p      wheel one click forward / back
 //   s          big select          r g b y c   red green blue yellow chooser
-//   e          back (Escape)       1 2 3 4     spare inputs
+//   e          back (Escape)
 //   m          switch mode         ?           print status
 //   q          toggle VoiceOver Quick Nav (same as holding Back + Green 3 s)
 // Buttons go through the same action table and keyboard path as the real
@@ -579,10 +564,6 @@ void serviceSerial() {
       case 'y': idx = IN_YLW;  what = "yellow";  break;
       case 'c': idx = IN_CHO;  what = "chooser"; break;
       case 'e': idx = IN_BACK; what = "back";    break;
-      case '1': idx = IN_J1;   what = "jack 1";  break;
-      case '2': idx = IN_J2;   what = "jack 2";  break;
-      case '3': idx = IN_J3;   what = "jack 3";  break;
-      case '4': idx = IN_J4;   what = "jack 4";  break;
       case 'q':                              // Back + Green hold: toggle Quick Nav
         if (currentMode == MODE_VOICEOVER) queueKeys(KEY_LEFT_ARROW, KEY_RIGHT_ARROW);
         Serial.println("> quick nav toggle");

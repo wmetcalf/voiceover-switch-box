@@ -2,6 +2,9 @@
 
 Firmware versions. The sketch header has the same list.
 
+## v10.11
+- Clean-up with no change in behaviour: removed the four unused spare inputs on GP2–GP5 and the actions no button used any more.
+
 ## v10.10
 - Chooser's close-app sends media **Pause** first, then Cmd+W, then Home, so a playing video isn't pushed into Picture in Picture.
 

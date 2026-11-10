@@ -4,7 +4,6 @@
  * USB/Bluetooth link in any text box (TextEdit, Notes) with VoiceOver OFF.
  *   Wheel forward = ">"   Wheel back = "<"
  *   Buttons type: SELECT RED GREEN BLUE YELLOW CHOOSER BACK
- *   (and JACK1..JACK4 for the spare inputs on GP2-GP5, not wired on the original box)
  * On power-up it types nothing; LED flashes 5x quickly, then shows the link:
  *   FAST blink (5/s)        = USB keyboard connected to a computer/iPad
  *   DOUBLE blink each sec   = Bluetooth connected
@@ -18,14 +17,14 @@
 #include <PicoBluetoothBLEHID.h>
 extern "C" bool tud_mounted(void);
 
-const uint8_t PINS[]  = { 15, 16, 17, 18, 19, 20, 21, 2, 3, 4, 5 };
-const char*   NAMES[] = { "SELECT", "RED", "GREEN", "BLUE", "YELLOW", "CHOOSER", "BACK", "JACK1", "JACK2", "JACK3", "JACK4" };
+const uint8_t PINS[]  = { 15, 16, 17, 18, 19, 20, 21 };
+const char*   NAMES[] = { "SELECT", "RED", "GREEN", "BLUE", "YELLOW", "CHOOSER", "BACK" };
 const int N = sizeof(PINS);
 #define ENC_A 10
 #define ENC_B 11
 #define PIEZO 22
 
-bool stable[11], raw[11]; uint32_t changedAt[11];
+bool stable[7], raw[7]; uint32_t changedAt[7];
 volatile int32_t encCount = 0; volatile uint8_t encState = 0;
 static const int8_t QDEC[16] = { 0,-1, 1, 0,  1, 0, 0,-1,  -1, 0, 0, 1,  0, 1,-1, 0 };
 void encISR() { uint8_t s = (digitalRead(ENC_A) << 1) | digitalRead(ENC_B); encState = ((encState << 2) | s) & 0x0F; encCount += QDEC[encState]; }

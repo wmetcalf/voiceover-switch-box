@@ -187,8 +187,8 @@ std::map<std::string, std::function<void()>> S = {
     boot();
     uint32_t t0 = g_now;
     tap(RED_PIN); tap(GRN_PIN); tap(BLU_PIN); tap(YLW_PIN); tap(CHO_PIN); tap(BACK_PIN);
-    tap(JACK1_PIN); tap(JACK2_PIN); tap(JACK3_PIN); tap(JACK4_PIN); tick(5000);
-    expectKeys(0, {"Ctrl+Opt+a", "Ctrl+Opt+h", "Ctrl+Opt+s", "Ctrl+Opt+-", "Pause", "Cmd+w", "Cmd+h", "Esc", NEXT, ACT, PREV, "Esc"}, "VoiceOver map");
+    tick(5000);
+    expectKeys(0, {"Ctrl+Opt+a", "Ctrl+Opt+h", "Ctrl+Opt+s", "Ctrl+Opt+-", "Pause", "Cmd+w", "Cmd+h", "Esc"}, "VoiceOver map");
     CHECK(beepsAt(1319, t0) == 1, "Blue (mute) should chirp once");
     checkTiming();
   }},
@@ -277,12 +277,12 @@ std::map<std::string, std::function<void()>> S = {
   }},
   {"serial_test_port", [] {
     boot();
-    Serial.in = "nps\nrgbyce1234"; tick(8000);
-    expectKeys(0, {NEXT, PREV, ACT, "Ctrl+Opt+a", "Ctrl+Opt+h", "Ctrl+Opt+s", "Ctrl+Opt+-", "Pause", "Cmd+w", "Cmd+h", "Esc", NEXT, ACT, PREV, "Esc"},
+    Serial.in = "nps\nrgbyce1234"; tick(8000);   // 1-4 were the spare inputs: now ignored
+    expectKeys(0, {NEXT, PREV, ACT, "Ctrl+Opt+a", "Ctrl+Opt+h", "Ctrl+Opt+s", "Ctrl+Opt+-", "Pause", "Cmd+w", "Cmd+h", "Esc"},
                "serial commands drive the same actions as the switches");
-    CHECK(Serial.out.find("> wheel forward") != std::string::npos && Serial.out.find("> jack 4") != std::string::npos, "each command is echoed");
+    CHECK(Serial.out.find("> wheel forward") != std::string::npos && Serial.out.find("> back") != std::string::npos && Serial.out.find("jack") == std::string::npos, "each command is echoed");
     Serial.out.clear(); g_usb_mounted = true; g_ble_connected = false; Serial.in = "?"; tick(10);
-    CHECK(Serial.out.find("v10.10") != std::string::npos && Serial.out.find("mode: VoiceOver") != std::string::npos
+    CHECK(Serial.out.find("v10.11") != std::string::npos && Serial.out.find("mode: VoiceOver") != std::string::npos
           && Serial.out.find("host reading keys") != std::string::npos, "status line: " + Serial.out);
     g_hid_ready = false; Serial.out.clear(); Serial.in = "?"; tick(10);
     CHECK(Serial.out.find("NOT reading") != std::string::npos, "status should flag a host that isn't reading: " + Serial.out);
@@ -302,8 +302,8 @@ std::map<std::string, std::function<void()>> S = {
     size_t s = g_keys.size();
     detent(+1); tick(200); detent(-1); tick(200);
     tap(SEL_PIN); tap(RED_PIN); tap(GRN_PIN); tap(BLU_PIN); tap(YLW_PIN); tap(CHO_PIN); tap(BACK_PIN);
-    tap(JACK1_PIN); tap(JACK2_PIN); tap(JACK3_PIN); tap(JACK4_PIN); tick(300);
-    expectKeys(s, {"Space", "Space", "Enter", "Space", "Enter", "Esc", "Cmd+h", "Tab", "Esc", "Space", "Enter", "Esc"}, "TD Snap map");
+    tick(300);
+    expectKeys(s, {"Space", "Space", "Enter", "Space", "Enter", "Esc", "Cmd+h", "Tab", "Esc"}, "TD Snap map");
     checkTiming();
   }},
   {"usb_only_when_host_present", [] {
