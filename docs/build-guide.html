@@ -161,6 +161,22 @@ canvas{display:block;margin:0 auto;}
   body.print-one #print-area{display:block!important;margin:0;padding:0;}
   body.print-one #print-area svg{display:block;}
 }
+
+body.print-all .tc{display:block!important;}
+body.print-all #stencil,body.print-all #sidestencil{display:none!important;}
+body.print-all #ws-nav-hide,body.print-all .tab-bar{display:none!important;}
+@media print{
+  :root{--bg:#fff;--bg2:#f7f7f7;--bg3:#eee;--border:#bbb;--border2:#ccc;--txt:#111;--txt2:#222;--txt3:#333;--blue:#0b5cad;--green:#1a7f37;--orange:#9a5b00;}
+  *{-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  body.print-all .tc{break-before:page;max-width:none!important;padding:0 4mm!important;}
+  body.print-all #parts{break-before:auto;}
+  .noprint{display:none!important;}
+  body.print-all pre{display:none!important;}
+  body.print-all .card,body.print-all .sc,body.print-all tr,body.print-all .pb{break-inside:avoid;}
+  body.print-all .sc{border-top:1px solid #bbb;padding-top:8px;margin-top:8px;}
+  .wn{background:#fff6dd!important;color:#5c4400!important;}
+  .warn{color:#5c4400!important;}
+}
 </style>
 </head>
 <body>
@@ -171,7 +187,8 @@ canvas{display:block;margin:0 auto;}
 </div>
 
 <div style="text-align:center;padding:8px 14px 0">
-  <button onclick="window.print()" style="font-family:var(--mono);font-size:.68rem;padding:8px 16px;background:var(--green);border:none;border-radius:8px;color:white;cursor:pointer;letter-spacing:.06em">&#128438; PRINT GUIDE</button>
+  <button onclick="printGuide()" style="font-family:var(--mono);font-size:.68rem;padding:8px 16px;background:var(--green);border:none;border-radius:8px;color:white;cursor:pointer;letter-spacing:.06em">&#128438; PRINT WHOLE GUIDE</button>
+  <div class="noprint" style="font-size:.62rem;color:var(--txt3);font-family:var(--mono);margin-top:4px">Prints every tab except the stencils, which have their own print buttons. Nothing happens? Open this page in Safari or Chrome.</div>
 </div>
 
 <div class="tab-bar">
@@ -2803,6 +2820,25 @@ window.addEventListener('beforeprint',()=>{
   else if(t&&t.id==='sidestencil')prepStencil('side-svg');
 });
 window.addEventListener('afterprint',()=>document.body.classList.remove('print-one'));
+</script>
+<script>
+// Print the whole guide: show every tab, draw the diagrams, expand all wire steps.
+function prepGuide(){
+  document.body.classList.add('print-all');
+  try{drawBB();}catch(e){}
+  try{drawPhysical();}catch(e){}
+  const m=document.getElementById('ws-main');
+  if(m&&typeof S!=='undefined'){
+    m.innerHTML=S.map((s,i)=>`<div class="sc"><div class="sh"><div class="sn">${String(i+1).padStart(2,'0')}</div><div><div class="st">${s.t}</div><div class="ss">${s.ss}</div></div></div><div class="dg">${s.dg}</div>${s.html}</div>`).join('');
+  }
+}
+function unprepGuide(){
+  if(!document.body.classList.contains('print-all'))return;
+  document.body.classList.remove('print-all');
+  try{wsRender();}catch(e){}
+}
+function printGuide(){prepGuide();setTimeout(()=>window.print(),150);}
+window.addEventListener('afterprint',unprepGuide);
 </script>
 </body>
 </html>
