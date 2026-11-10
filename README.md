@@ -32,7 +32,7 @@ The Red button glows whenever the box has power. The mode is remembered when the
 
 ## Quick start
 
-1. **Build the box.** See the [parts list](hardware/BOM.md) and the illustrated [build guide](docs/build-guide.html). Download the build guide and open it in a browser (GitHub shows `.html` files as code); it has wiring diagrams, drill templates and the firmware built in.
+1. **Build the box.** See the [parts list](hardware/BOM.md) and the illustrated [build guide](https://wmetcalf.github.io/voiceover-switch-box/docs/build-guide.html), which has wiring diagrams, printable drill stencils and the firmware built in. (It is also in the repo as [`docs/build-guide.html`](docs/build-guide.html); GitHub shows that file as code, so download it to open it offline.)
 2. **Flash the firmware.** Hold BOOTSEL on the Pico while plugging it in, then copy [`firmware/prebuilt/voiceover_device_ble.uf2`](firmware/prebuilt/) onto the `RP2350` drive that appears. Once a box has firmware, later updates don't need BOOTSEL. Use the Arduino IDE's Upload button (it resets the board itself), or on a Mac run:
    ```sh
    stty -f /dev/cu.usbmodem* 1200; sleep 4; cp -X firmware/prebuilt/voiceover_device_ble.uf2 /Volumes/RP2350/
@@ -123,7 +123,8 @@ hardware/pcb/                    optional carrier PCB (SKiDL netlist, untested)
 docs/ipad-setup.md               iPad settings checklist
 docs/build-guide.html            full illustrated build guide (open in a browser)
 docs/images/                     photos
-tools/box-key-check.html         web page that shows exactly what keys a device receives
+tools/box-key-check.html         web page that shows exactly what keys a device receives (live at
+                                 https://wmetcalf.github.io/voiceover-switch-box/tools/box-key-check.html)
 ```
 
 ## License

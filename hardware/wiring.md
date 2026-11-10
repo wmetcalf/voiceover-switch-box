@@ -27,4 +27,4 @@ Every button connects between a GPIO pin and **GND**. The firmware turns on the 
 - **Grounds:** daisy-chain one ground wire from button to button, or use a Wago lever connector, then run a single wire to a GND pin.
 - **Checking the wiring:** flash `firmware/tools/keytest`, open a text editor on any computer, and press each control. It types its name: SELECT, RED, GREEN, and so on. The wheel types `>` and `<`.
 
-The illustrated [build guide](../docs/build-guide.html) has breadboard diagrams, drill templates and step-by-step instructions.
+The illustrated [build guide](https://wmetcalf.github.io/voiceover-switch-box/docs/build-guide.html) has breadboard diagrams, drill templates and step-by-step instructions.

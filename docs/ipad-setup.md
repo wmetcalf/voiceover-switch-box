@@ -39,6 +39,6 @@ Do this once on the student's iPad. Each item says why it matters.
 | Wheel does nothing with VoiceOver on, only Chooser seems to work | The box is in TD Snap mode: unplug and replug it, and it beeps twice. Hold Back + Chooser for 3 s. |
 | Red button dark when plugged in | No power: flip the plug at the box end, or try another cable. |
 | Red button lit, but nothing happens on the iPad | Charge-only cable, Wired Accessories blocking it, or the iPad was locked when plugged in. |
-| Not sure what the iPad is receiving | Open `tools/box-key-check.html` on the iPad with VoiceOver off and press the buttons. It lists every key received and which button it came from. |
+| Not sure what the iPad is receiving | Open the [Box Key Check page](https://wmetcalf.github.io/voiceover-switch-box/tools/box-key-check.html) on the iPad with VoiceOver off and press the buttons. It lists every key received and which button it came from. |
 | Video keeps playing after leaving the app | Turn off Start PiP Automatically (above). |
 | VoiceOver gets lost inside an app | VoiceOver struggles with that app. Back closes pop-ups; Green goes Home. |
