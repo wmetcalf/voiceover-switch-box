@@ -2,6 +2,7 @@ name: CI
 
 on:
   push:
+    branches-ignore: [gh-pages]
   pull_request:
 
 jobs:
@@ -33,3 +34,18 @@ jobs:
         with:
           name: firmware-uf2
           path: build/*.uf2
+
+  # GitHub Pages serves the gh-pages branch (the build guide and the Box Key Check page).
+  # Keep it identical to main once main passes.
+  pages:
+    needs: [simulator, build]
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Publish main to gh-pages
+        run: git push --force origin HEAD:gh-pages
